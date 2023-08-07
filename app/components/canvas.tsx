@@ -1,13 +1,16 @@
-import { MathUtils, Vector3 } from 'three'
+import { MathUtils, Vector3, Group } from 'three'
 import { useRef } from 'react' 
 import { Html, Points, Point, Line, PointMaterial, OrbitControls, Text, Box } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber';
 
 const Particle = () => {
-    const poin = useRef(null)
+    const poin = useRef<Group>(null)
+
     useFrame(() => {
-        poin.current.rotation.y += 0.0007
-        poin.current.rotation.x += 0.0007
+        if(poin.current != null){
+            poin.current.rotation.y += 0.0007
+            poin.current.rotation.x += 0.0007
+        }
     })
     const positions = Array.from({ length: 1000 }, (i) => [
         MathUtils.randFloatSpread(8),
