@@ -18,12 +18,15 @@ const Particle = () => {
         MathUtils.randFloatSpread(8),
       ]).map(position => new Vector3(...position));
     return (
-        <Points limit={positions.length} ref={poin}>
-            <PointMaterial vertexColors size={2} sizeAttenuation={false} depthWrite={false} toneMapped={false} />
-            {positions.map((position, i) => (
-                <Point key={i}  color={'white'} position={position} />
-            ))}
-        </Points>
+        <group ref={poin}>
+            <Points limit={positions.length}>
+                        <PointMaterial vertexColors size={2} sizeAttenuation={false} depthWrite={false} toneMapped={false} />
+                        {positions.map((position, i) => (
+                            <Point key={i}  color={'white'} position={position} />
+                        ))}
+            </Points>
+        </group>
+        
     )
 }
 
