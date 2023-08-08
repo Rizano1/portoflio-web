@@ -6,7 +6,7 @@ import Navbar from "../components/navbar"
 export default function Landing() {
     return (
         <main>
-            <div className="h-screen">
+            <div className="h-screen w-screen">
                 <Navbar />
                 <Object/>
                 <div className="absolute z-80 w-screen text-white bottom-2 inset-x-1/2 hover:opacity-50 duration-300">
