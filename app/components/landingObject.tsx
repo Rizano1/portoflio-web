@@ -17,7 +17,7 @@ const Particle = () => {
 
         }
         if(textParticle.current != null){
-            const r1 = scroll.range(0, 1 / 10)
+            const r1 = scroll.range(0, 1 / 8)
             textParticle.current.position.z = 20 * r1
 
             // const r2 = scroll.range(1 / 40, 1 / 35)
