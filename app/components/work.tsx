@@ -22,16 +22,16 @@ const FirstImage =  () => {
     )
 }
 
-export default function Work (){
+const Images = () => {
     const image = useRef<any>(null)
     const scroll = useScroll()
 
     useFrame(() => {
-        const r1 = scroll.range(1/8, 1/4)
+        const r1 = scroll.range(1/8, 1/3)
 
        
         if(image.current){
-            image.current.position.x = -130 * r1
+            image.current.position.x = -180 * r1
         }
     })
     return(
@@ -43,5 +43,11 @@ export default function Work (){
                 <Image  url="/webgame.png"  scale={[32, 17]} position={[130, 0, 0]} transparent/>
             </group>
         </group>
+    )
+}
+
+export default function Work () {
+    return(
+        <Images/>
     )
 }

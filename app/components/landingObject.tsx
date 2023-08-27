@@ -1,9 +1,13 @@
-import { MathUtils, Vector3, Group } from 'three'
+import { MathUtils, Vector3, Group } from 'three' 
 import { useRef } from 'react' 
 import { Html, Points, Point, PointMaterial, Text, ScrollControls, Scroll, useScroll} from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber';
 
-const Particle = () => {
+interface ParticleProps {
+    positions: Vector3[];
+  }
+
+const Particle = ({ positions }: ParticleProps) => {
     const BigFont = { font: '/Oswald-Bold.ttf', fontSize: 14, 'material-toneMapped': false }
     const LittleFont = { font: '/Oswald-Light.ttf', fontSize: 1, 'material-toneMapped': false }
     const textParticle = useRef<Group>(null)
@@ -27,11 +31,7 @@ const Particle = () => {
 
         }
     })
-    const positions = Array.from({ length: 3000 }, (i) => [
-        MathUtils.randFloatSpread(8),
-        MathUtils.randFloatSpread(8),
-        MathUtils.randFloatSpread(8),
-      ]).map(position => new Vector3(...position));
+      
     return (
         <group ref={textParticle}>
             <group ref={poin}>
@@ -60,9 +60,15 @@ const Particle = () => {
     )
 }
 
+const positions = Array.from({ length: 3000 }, (i) => [
+    MathUtils.randFloatSpread(8),
+    MathUtils.randFloatSpread(8),
+    MathUtils.randFloatSpread(8),
+  ]).map(position => new Vector3(...position));
+
 export default function Object() {
 
     return (
-        <Particle />
+        <Particle positions={positions} />
     )
 }
